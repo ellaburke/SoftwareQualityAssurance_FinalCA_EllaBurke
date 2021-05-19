@@ -55,8 +55,8 @@ public class UnitTests {
 		assertEquals(null, rubricCriterion);
 
 	}
-	
-	//2. Test if Student can be created
+
+	// 2. Test if Student can be created
 	@Test
 	public void testCreateStudentGrade() {
 
@@ -84,8 +84,8 @@ public class UnitTests {
 		assertEquals(null, studentGradeGreaterThanFive);
 
 	}
-	
-	//3. Test if Criterion can be added to Rubric
+
+	// 3. Test if Criterion can be added to Rubric
 	@Test
 	public void testAddCriterionToRubric() {
 
@@ -105,8 +105,8 @@ public class UnitTests {
 		assertEquals("Extra", criterionList.get(criterionList.size() - 1));
 
 	}
-	
-	//4. Get Rubric by Name	
+
+	// 4. Get Rubric by Name
 	@Test
 	public void testGetRubricByName() {
 
@@ -115,16 +115,16 @@ public class UnitTests {
 		Rubric rubricByName = controller.createRubric("SQA", null, null);
 
 		Rubric rubricByNameExists = controller.getRubricByName("SQA");
-		
+
 		assertEquals(rubricByName, rubricByNameExists);
 
 		// returns null if rubric does not exist with given name
 		Rubric rubricByNameDoesntExist = controller.getRubricByName("Statistics");
 
-		assertEquals(null,rubricByNameDoesntExist);
+		assertEquals(null, rubricByNameDoesntExist);
 	}
-	
-	//5. Get all StudentGrades
+
+	// 5. Get all StudentGrades
 	@Test
 	public void testGetAllStudentGrades() {
 
@@ -158,10 +158,91 @@ public class UnitTests {
 		gradeList.add(student2);
 		gradeList.add(student3);
 		gradeList.add(student4);
-		
+
 		List<StudentGrade> gradeList1 = controller.getAllStudentGrades();
 
-		
-		assertEquals(gradeList,gradeList );
+		assertEquals(gradeList, gradeList);
 	}
+
+	// 6. Student Grade By Specified Rubric
+	@Test
+	public void testStudentGradeByRubric() {
+
+		controller = new Controller();
+		
+		String implementation = "Implementation";
+		String documentation = "Documentation";
+
+		List<String> criterion = new ArrayList<>();
+		
+		criterion.add(implementation);
+		criterion.add(documentation);
+
+		HashMap<String, Integer> scoresList1 = new HashMap();
+		HashMap<String, Integer> scoresList2 = new HashMap();
+		
+		scoresList1.put(implementation, 2);
+		scoresList1.put(documentation, 4);
+		
+		StudentGrade KyleRichardsGrade = controller.createStudentGrade("Kyle Richards", scoresList1);
+		
+		scoresList2.put(implementation, 5);
+		scoresList2.put(documentation, 5);
+		
+		StudentGrade KimRichardsGrade = controller.createStudentGrade("Lisa Rina", scoresList2);
+
+		List<StudentGrade> studentsGrades = new ArrayList<StudentGrade>();
+		studentsGrades.add(KyleRichardsGrade);
+		studentsGrades.add(KimRichardsGrade);
+
+		controller.createRubric("SQA", criterion, studentsGrades);
+
+		List<StudentGrade> actualGrades = controller.getAllStudentGradesByRubric("SQA");
+
+		assertEquals(studentsGrades, actualGrades);
+
+	}
+	
+	//Calculation Tests
+	//7. Test for Criterion Average
+	
+	@Test
+	public void testCriterionAverage() {
+		
+		controller = new Controller();
+
+		ArrayList<String> criterion = new ArrayList<>();
+		double avgTest = Double.valueOf((2.0 + 2.0) / 2.0);
+
+		criterion.add(new String("Design"));
+		criterion.add(new String("Implementation"));
+		criterion.add(new String("Testing"));
+		criterion.add(new String("Documentation"));
+
+		HashMap<String, Integer> grade1 = new HashMap<String, Integer>();
+		HashMap<String, Integer> grade2 = new HashMap<String, Integer>();
+
+		grade1.put("Design", 3);
+		grade1.put("Implementation", 2);
+		grade2.put("Design", 2);
+		grade2.put("Implementation", 2);
+
+
+		StudentGrade KyleRichardsGrade = controller.createStudentGrade("Kyle Richards", grade1);
+		StudentGrade KimRichardsGrade = controller.createStudentGrade("Kim Richards", grade2);
+
+		ArrayList<StudentGrade> studentGrades = new ArrayList<StudentGrade>();
+
+		studentGrades.add(KyleRichardsGrade);
+		studentGrades.add(KimRichardsGrade);
+
+		Rubric rub = controller.createRubric("SQA", criterion, studentGrades);
+
+		double average = controller.getCriterionAverage(rub, "Design");
+
+		Assertions.assertEquals(avgTest, average);
+
+		
+	}
+	
 }

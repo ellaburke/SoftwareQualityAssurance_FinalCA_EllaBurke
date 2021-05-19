@@ -87,5 +87,36 @@ public class Controller {
 
 		return criterionList;
 	}
+	
+	// Get All Grades For A Specific Rubric
+	public List<StudentGrade>getAllStudentGradesByRubric(String rubricName){
+		
+		List<StudentGrade>grades= new ArrayList<StudentGrade>();
+		
+		for(Rubric rub : rubricList) {
+			if(rub.getRubricTitle().equalsIgnoreCase(rubricName)) {
+				for(StudentGrade grade: rub.getGrades()) {
+					grades.add(grade);
+				}
+			}
+		}
+		return grades;
+	}
+	
+	
+	//Calculations
+	//Average Score of Specified Criterion
+	public double getCriterionAverage(Rubric rubric, String criterion) {
+		
+		int total =0;
+		for(StudentGrade grade :rubric.getGrades()) {
+			total = total + grade.getStudentScore().get(criterion);
+		}
+		int average = Math.round(total/rubric.getGrades().size());
+
+		return average;
+	}
+	
+	
 
 }
