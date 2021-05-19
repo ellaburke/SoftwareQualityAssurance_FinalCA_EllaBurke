@@ -245,4 +245,41 @@ public class UnitTests {
 		
 	}
 	
+	//8. Test for Criterion Min or Max
+	
+		@Test
+		public void testCriterionMinOrMax() {
+			
+			controller = new Controller();
+			List<StudentGrade> expectedResult = new ArrayList<StudentGrade>();
+			
+			HashMap<String, Integer> KimsScores = new HashMap();
+			
+			KimsScores.put("Design", 2);
+			KimsScores.put("Implementation", 5);
+			
+			StudentGrade KimsGrade = controller.createStudentGrade("Kim Kardashian", KimsScores);
+			
+			expectedResult.add(KimsGrade);
+			
+			List<String> criterion = new ArrayList<>();
+			criterion.add("Design");
+			
+			Rubric rubric = controller.createRubric("SQA", criterion, expectedResult);
+			
+			String min = "2";
+			String max = "5";
+			int intmin = 2;
+			int intmax = 5;
+			
+			int theMin = controller.getMinOrMax(rubric,"Design", min);
+			int theMax = controller.getMinOrMax(rubric,"Implementation", max);
+			
+			assertEquals(2,intmin);
+			assertEquals(5,intmax);
+			
+			
+			
+		}
+	
 }
