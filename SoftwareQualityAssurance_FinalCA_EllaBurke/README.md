@@ -60,7 +60,10 @@ To calculate the sprint velocity, you need to measure the work done previously. 
 
 At the end of each sprint, add up the total of story points that were completed. For example, the team aimed to complete 5 user stories, each story had 5 points, and the team managed to complete 4/5. 4 User stories multiplied by 5 points = 20.
 Carry this out for 3 previous sprints to get the average sprint velocity by adding all velocities together and dividing by 3.
-By getting this sprint velocity, the team can now base the amount of work to be completed on the average velocity. This measurement is only a guide and is only beneficial if the team size and task complexity stay more or less constant. So the Sprint Velocity can be looked at as a good starting point for a sprint. A team cannot calculate its velocity until completing enough sprints to get an average. As you can see in the diagram above, once the average of the first 3 sprints (The Sprint Velocity) was calculated, the team were able to complete the amount of work that they committed to being able to do as they were able to take on the amount of work that they should be able to carry out for the sprint judging from previous sprints..
+
+
+By getting this sprint velocity, the team can now base the amount of work to be completed on the average velocity. This measurement is only a guide and is only beneficial if the team size and task complexity stay more or less constant. So the Sprint Velocity can be looked at as a good starting point for a sprint. A team cannot calculate its velocity until completing enough sprints to get an average. As you can see in the diagram above, once the average of the first 3 sprints (The Sprint Velocity) was calculated, the team were able to complete the amount of work that they committed to being able to do as they were able to take on the amount of work that they should be able to carry out for the sprint judging from previous sprints.
+
 
 # Test-driven Development
 
@@ -96,6 +99,7 @@ Gitflow is a Git workflow for continuous software development. The Gitflow workf
 Feature branches are branched off of the development branch, and then once the features are complete they are merged back into the develop branch, this allows multiple developers to be working on the same task. When it is time for a sprint release, a release branch is created from develop. The code in this release branch can be tested independentally before merging into the master branch(and the develop branch as thats the branch in between). A Hotfix branch is a branch for emergency fixes on the released code. When the error has been fixed this branch gets merged back into main and develop.
 
 In this project, to follow the GitFlow process I created a develop branch off of the main branch and then feature branches off the develop branch. Although this was a solo project, in the case that I needed help on a topic it would make sense that I was working on a feature branch so both me and another person could be working on the same task. Then when our work was complete we would merge both our feature branches into the develop branch, ready for release. This project requires documentation on multiple topics such as "Scrum sprint backlog and task estimation", "Team version-control", "Unit testing and Test-Driven development" etc. All of these topics are required to go in the one README file. So for the purpose of explaining the Gitflow process in this project, each topic in the README file was its own feature branch. By creating these seperate feature branches, for different tasks, this allowed different tasks to be carried out and once pull requests were approved, all work was put into the README file. In the working world, each task may be assigned to a different developer, and therefore they could all be creating work for the read me file seperately. 
+
 
 
 # Code Review 
@@ -152,3 +156,4 @@ Have all edge cases passed the test? The system may be passing tests that actual
 
 
 [Link to my Commit to see my use of the Code Review Checklist!](https://github.com/ellaburke/SoftwareQualityAssurance_FinalCA_EllaBurke/pull/1)
+
