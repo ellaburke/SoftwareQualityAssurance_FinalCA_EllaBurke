@@ -1,5 +1,6 @@
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 public class StudentGrade {
@@ -7,7 +8,7 @@ public class StudentGrade {
 	//Student's Full Name
 	String fullName;
 	//List of scores
-	List<Integer> studentScore = new ArrayList<Integer>();
+	HashMap<String,Integer>studentScore = new HashMap();
 	//List of scores for particular criterion?
 	
 	
@@ -17,14 +18,11 @@ public class StudentGrade {
 		// TODO Auto-generated constructor stub
 	}
 
-
-	//Constructor
-	public StudentGrade(String fullName, List<Integer> studentScore) {
+	public StudentGrade(String fullName, HashMap<String, Integer> studentScore) {
 		super();
 		this.fullName = fullName;
 		this.studentScore = studentScore;
 	}
-
 
 	//Getters & Setters
 	public String getFullName() {
@@ -36,19 +34,12 @@ public class StudentGrade {
 		this.fullName = fullName;
 	}
 
-
-	public List<Integer> getStudentScore() {
+	public HashMap<String, Integer> getStudentScore() {
 		return studentScore;
 	}
 
-
-	public void setStudentScore(List<Integer> studentScore) {
+	public void setStudentScore(HashMap<String, Integer> studentScore) {
 		this.studentScore = studentScore;
 	}
-	
-	
-	
-	
-	
 
 }

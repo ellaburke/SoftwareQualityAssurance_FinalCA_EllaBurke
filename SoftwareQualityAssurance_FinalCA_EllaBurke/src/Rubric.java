@@ -22,11 +22,18 @@ public class Rubric {
 	}
 
 
-	//Constructor
-	public Rubric(String rubricTitle) {
+	
+
+
+	public Rubric(String rubricTitle, List<StudentGrade> grades, List<String> criterion) {
 		super();
 		this.rubricTitle = rubricTitle;
+		this.grades = grades;
+		this.criterion = criterion;
 	}
+
+
+
 
 
 	//Getters & Setters

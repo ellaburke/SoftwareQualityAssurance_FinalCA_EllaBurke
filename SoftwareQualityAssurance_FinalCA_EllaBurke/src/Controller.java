@@ -1,5 +1,6 @@
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 public class Controller {
@@ -14,21 +15,50 @@ public class Controller {
 		
 	}
 	
-	//Create Rubric, made up of criterion, grades and title
-	public Rubric createRubric(List<String> criterion, List<StudentGrade>grades,String title) {
-		Rubric rubric = new Rubric(title);
-		rubric.setCriteria(criterion);
-		rubric.setGrades(grades);
+	//Create New Rubric, made up of criterion, grades and title
+	public Rubric createRubric(String title, List<String> criterion, List<StudentGrade>grades) {
+		
+		if (criterion != null) {
+			if (criterion.size() > 10) {
+				System.out.println("Max 10 Criterion");
+				return null;
+			}
+		}
+		
+		Rubric rubric = new Rubric(title, grades, criterion);
 		rubricList.add(rubric);
 		return rubric;
+		
 	}
+
+	
 	//Returns List of Rubrics Created 
 	public List<Rubric> getAllRubrics() {
 		return rubricList;
 	}
+
+	// Student Grade can be from 1-5
+	public boolean isGradeBetweenOneAndFive(HashMap<String, Integer> grades) {
+
+		for (Integer i : grades.values()) {
+			if (i > 5 || i < 1) {
+				System.out.println("Grade must be between 1 & 5");
+				return false;
+			}
+		}
+		return true;
+	}
 	
-	
-	
-	
+	// Create StudentGrade
+	public StudentGrade createStudentGrade(String fullName, HashMap<String, Integer> studentScore) {
+
+		if (!isGradeBetweenOneAndFive(studentScore)) {
+			return null;
+		}
+
+		StudentGrade studentGrade = new StudentGrade(fullName, studentScore);
+
+		return studentGrade;
+	}
 
 }
