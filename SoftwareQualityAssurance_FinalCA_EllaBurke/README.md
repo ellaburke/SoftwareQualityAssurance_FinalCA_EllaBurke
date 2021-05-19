@@ -60,12 +60,7 @@ To calculate the sprint velocity, you need to measure the work done previously. 
 
 At the end of each sprint, add up the total of story points that were completed. For example, the team aimed to complete 5 user stories, each story had 5 points, and the team managed to complete 4/5. 4 User stories multiplied by 5 points = 20.
 Carry this out for 3 previous sprints to get the average sprint velocity by adding all velocities together and dividing by 3.
-
-By getting this sprint velocity, the team can now base the amount of work to be completed on the average velocity. This measurement is only a guide and is only beneficial if the team size and task complexity stay more or less constant. So the Sprint Velocity can be looked at as a good starting point for a sprint. A team cannot calculate its velocity until completing enough sprints to get an average. As you can see in the diagram above, once the average of the first 3 sprints (The Sprint Velocity) was calculated, the team were able to complete the amount of work that they committed to being able to do as they were able to take on the amount of work that they should be able to carry out for the sprint judging from previous sprints.
-
-
-
-
+By getting this sprint velocity, the team can now base the amount of work to be completed on the average velocity. This measurement is only a guide and is only beneficial if the team size and task complexity stay more or less constant. So the Sprint Velocity can be looked at as a good starting point for a sprint. A team cannot calculate its velocity until completing enough sprints to get an average. As you can see in the diagram above, once the average of the first 3 sprints (The Sprint Velocity) was calculated, the team were able to complete the amount of work that they committed to being able to do as they were able to take on the amount of work that they should be able to carry out for the sprint judging from previous sprints..
 
 # Test-driven Development
 
