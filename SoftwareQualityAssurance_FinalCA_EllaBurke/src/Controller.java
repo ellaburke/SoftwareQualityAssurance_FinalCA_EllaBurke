@@ -49,6 +49,16 @@ public class Controller {
 		return true;
 	}
 	
+	// Get a specific Rubric by name
+	public Rubric getRubricByName(String rubricName) {
+		for (Rubric rub : rubricList) {
+			if (rub.getRubricTitle().equals(rubricName)) {
+				return rub;
+			}
+		}
+		return null;
+	}
+	
 	// Create StudentGrade
 	public StudentGrade createStudentGrade(String fullName, HashMap<String, Integer> studentScore) {
 

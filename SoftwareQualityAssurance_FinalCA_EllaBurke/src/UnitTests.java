@@ -105,6 +105,24 @@ public class UnitTests {
 		assertEquals("Extra", criterionList.get(criterionList.size() - 1));
 
 	}
+	
+	//4. Get Rubric by Name	
+	@Test
+	public void testGetRubricByName() {
+
+		controller = new Controller();
+
+		Rubric rubricByName = controller.createRubric("SQA", null, null);
+
+		Rubric rubricByNameExists = controller.getRubricByName("SQA");
+		
+		assertEquals(rubricByName, rubricByNameExists);
+
+		// returns null if rubric does not exist with given name
+		Rubric rubricByNameDoesntExist = controller.getRubricByName("Statistics");
+
+		assertEquals(null,rubricByNameDoesntExist);
+	}
 
 
 }
