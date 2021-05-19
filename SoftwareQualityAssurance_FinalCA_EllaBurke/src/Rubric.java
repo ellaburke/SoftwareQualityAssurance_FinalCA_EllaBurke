@@ -1,0 +1,65 @@
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class Rubric {
+	
+	//Max 10 Criteria In Rubric
+	//Criterion score from 1-5
+	
+	//Rubric Object Name
+	String rubricTitle;
+	//Student Grade Object made up Student's name & score
+	List<StudentGrade>grades = new ArrayList<>();
+	//Criterion - provides the categories for the specific Rubric
+	List<String> criterion = new ArrayList<String>();
+	
+	
+	//Empty Constructor
+	public Rubric() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	public Rubric(String rubricTitle, List<StudentGrade> grades, List<String> criterion) {
+		super();
+		this.rubricTitle = rubricTitle;
+		this.grades = grades;
+		this.criterion = criterion;
+	}
+
+	//Getters & Setters
+	public String getRubricTitle() {
+		return rubricTitle;
+	}
+
+
+	public void setRubricTitle(String rubricTitle) {
+		this.rubricTitle = rubricTitle;
+	}
+
+
+	public List<StudentGrade> getGrades() {
+		return grades;
+	}
+
+
+	public void setGrades(List<StudentGrade> grades) {
+		this.grades = grades;
+	}
+
+
+	public List<String> getCriterion() {
+		return criterion;
+	}
+
+
+	public void setCriterion(List<String> criterion) {
+		this.criterion = criterion;
+	}
+	
+	
+	
+	
+
+}
