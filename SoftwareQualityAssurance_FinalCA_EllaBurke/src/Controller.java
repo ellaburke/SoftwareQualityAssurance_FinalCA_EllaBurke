@@ -60,5 +60,17 @@ public class Controller {
 
 		return studentGrade;
 	}
+	
+	// Add Criterion to Rubric
+	public ArrayList<String> addCriterionToRubric(String criterion, Rubric rubric) {
+
+		ArrayList<String> criterionList = (ArrayList<String>) rubric.getCriterion();
+
+		if (criterionList.size() < 10) {
+			criterionList.add(criterion);
+		}
+
+		return criterionList;
+	}
 
 }

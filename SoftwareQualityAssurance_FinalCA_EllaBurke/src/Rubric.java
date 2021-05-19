@@ -21,20 +21,12 @@ public class Rubric {
 		// TODO Auto-generated constructor stub
 	}
 
-
-	
-
-
 	public Rubric(String rubricTitle, List<StudentGrade> grades, List<String> criterion) {
 		super();
 		this.rubricTitle = rubricTitle;
 		this.grades = grades;
 		this.criterion = criterion;
 	}
-
-
-
-
 
 	//Getters & Setters
 	public String getRubricTitle() {
@@ -57,12 +49,12 @@ public class Rubric {
 	}
 
 
-	public List<String> getCriteria() {
+	public List<String> getCriterion() {
 		return criterion;
 	}
 
 
-	public void setCriteria(List<String> criterion) {
+	public void setCriterion(List<String> criterion) {
 		this.criterion = criterion;
 	}
 	

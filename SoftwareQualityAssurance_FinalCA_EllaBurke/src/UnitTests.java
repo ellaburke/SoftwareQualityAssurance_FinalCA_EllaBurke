@@ -31,7 +31,7 @@ public class UnitTests {
 		Rubric rubric = controller.createRubric("Criterion", criterion, null);
 
 		Assertions.assertFalse(controller.getAllRubrics().isEmpty());
-		assertEquals(criterion, rubric.getCriteria());
+		assertEquals(criterion, rubric.getCriterion());
 		assertEquals("Criterion", rubric.getRubricTitle());
 		assertEquals(null, rubric.getGrades());
 
@@ -84,5 +84,27 @@ public class UnitTests {
 		assertEquals(null, studentGradeGreaterThanFive);
 
 	}
+	
+	//3. Test if Criterion can be added to Rubric
+	@Test
+	public void testAddCriterionToRubric() {
+
+		controller = new Controller();
+
+		ArrayList<String> criterion = new ArrayList<>();
+
+		criterion.add(new String("Design"));
+		criterion.add(new String("Implementation"));
+		criterion.add(new String("Testing"));
+		criterion.add(new String("Documentation"));
+
+		Rubric rubric = controller.createRubric("Software Quality Assurance", criterion, null);
+
+		ArrayList<String> criterionList = controller.addCriterionToRubric("Extra", rubric);
+
+		assertEquals("Extra", criterionList.get(criterionList.size() - 1));
+
+	}
+
 
 }
