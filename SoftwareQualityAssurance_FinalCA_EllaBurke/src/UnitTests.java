@@ -123,6 +123,45 @@ public class UnitTests {
 
 		assertEquals(null,rubricByNameDoesntExist);
 	}
+	
+	//5. Get all StudentGrades
+	@Test
+	public void testGetAllStudentGrades() {
 
+		controller = new Controller();
 
+		ArrayList<String> criterion = new ArrayList<>();
+
+		criterion.add(new String("Design"));
+		criterion.add(new String("Implementation"));
+		criterion.add(new String("Testing"));
+		criterion.add(new String("Documentation"));
+
+		HashMap<String, Integer> grade1 = new HashMap<String, Integer>();
+		HashMap<String, Integer> grade2 = new HashMap<String, Integer>();
+		HashMap<String, Integer> grade3 = new HashMap<String, Integer>();
+		HashMap<String, Integer> grade4 = new HashMap<String, Integer>();
+
+		grade1.put("Design", 5);
+		grade2.put("Implementation", 4);
+		grade3.put("Design", 3);
+		grade4.put("Documentation", 2);
+
+		StudentGrade student1 = controller.createStudentGrade("Student 1", grade1);
+		StudentGrade student2 = controller.createStudentGrade("Student 2", grade2);
+		StudentGrade student3 = controller.createStudentGrade("Student 3", grade3);
+		StudentGrade student4 = controller.createStudentGrade("Student 3", grade4);
+
+		ArrayList<StudentGrade> gradeList = new ArrayList<StudentGrade>();
+
+		gradeList.add(student1);
+		gradeList.add(student2);
+		gradeList.add(student3);
+		gradeList.add(student4);
+		
+		List<StudentGrade> gradeList1 = controller.getAllStudentGrades();
+
+		
+		assertEquals(gradeList,gradeList );
+	}
 }

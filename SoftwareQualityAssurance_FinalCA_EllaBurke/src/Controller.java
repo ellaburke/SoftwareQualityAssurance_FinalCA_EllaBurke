@@ -71,6 +71,11 @@ public class Controller {
 		return studentGrade;
 	}
 	
+	//Returns all StudentGrades
+	public List<StudentGrade>getAllStudentGrades(){
+		return studentGradeList;
+	}
+	
 	// Add Criterion to Rubric
 	public ArrayList<String> addCriterionToRubric(String criterion, Rubric rubric) {
 
