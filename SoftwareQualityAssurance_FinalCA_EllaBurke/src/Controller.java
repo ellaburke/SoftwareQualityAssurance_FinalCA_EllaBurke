@@ -1,5 +1,6 @@
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
@@ -117,9 +118,19 @@ public class Controller {
 
 		return average;
 	}
+	//Average Score of Specified Rubric
+	public double getCriterionAverageOfRubric(Rubric rubric) {
+		
+		int total =0;
+		for(StudentGrade grade :rubric.getGrades()) {
+			//total = (total + grade);
+		}
+		int average = Math.round(total/rubric.getGrades().size());
+
+		return average;
+	}
 	
-	//Max Grade of Specified Criterion
-	//Returns the min or max of a specified criterion based on the parameter 
+	//Min or Max Grade of Specified Criterion
 	public int getMinOrMax(Rubric rubric,String criterion,String minOrMax) {
 		 List<Integer>scores = new ArrayList<Integer>();
 			int result;
@@ -136,6 +147,25 @@ public class Controller {
 			}
 			return result;
 	}
+	
+	//Min or Max Grade of Specified Rubric
+	public int getMinOrMaxOfRubric(Rubric rubric, String minOrMax) {
+		 List<Integer>rubricMinOrMax = new ArrayList<Integer>();
+			int result;
+
+			for(StudentGrade grade :rubric.getGrades()) {
+				rubricMinOrMax.addAll((Collection<? extends Integer>) grade);
+			}
+			
+			Collections.sort(rubricMinOrMax);
+			if(minOrMax.equalsIgnoreCase("Min")) {
+				result = rubricMinOrMax.get(0);
+			}else {
+				result = rubricMinOrMax.get(rubricMinOrMax.size()-1);
+			}
+			return result;
+	}
+	
 	
 	
 
